@@ -1,240 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pink Theme</title>
-    <style>
-        body {
-            background-color: pink;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .message-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
-            animation: fadeIn 3s ease-in-out;
-        }
-
-        .message-1, .message-2 {
-            margin-top: 20px;
-            font-size: 2rem;
-        }
-
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .text-content {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .image-container {
-            width: 50%;
-            text-align: center;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        #image-1, #image-2, #image-3, #image-4 {
-            width: 100%;
-            display: block;
-        }
-
-        #image-2, #image-3, #image-4 {
-            display: none;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-        }
-
-        button {
-            background-color: white;
-            color: pink;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        button:hover {
-            transform: translateY(-5px);
-        }
-
-        #no-button:hover ~ .image-container #image-1 {
-            display: none;
-        }
-
-        #no-button:hover ~ .image-container #image-2 {
-            display: block;
-        }
-
-        #yes-button:hover ~ .image-container #image-2 {
-            display: none;
-        }
-
-        #yes-button:hover ~ .image-container #image-3 {
-            display: block;
-        }
-
-        #confirm-button:hover ~ .image-container #image-4 {
-            display: block;
-        }
-
-        .date-container {
-            display: none;
-            margin-top: 100px;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        #confirm-button {
-            background-color: pink;
-            color: white;
-            margin-top: 20px;
-        }
-
-        #confirm-message {
-            display: none;
-            margin-top: 20px;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        .pdf-container {
-            display: none;
-            margin-top: 100px;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <div class="message-container">
-            <div class="message-1">Welcome to our website!</div>
-            <div class="message-2">Hiiiii Meri Jaaaanuuuuu❤️❤️❤️</div>
-        </div>
-        <div class="content-container">
-            <div class="text-content">
-                <h1>Would you like to go on a date with mee??</h1>
-                <p>I have prepared some exciting plans for you.</p>
-            </div>
-            <div class="image-container">
-                <img src="image1.gif" alt="Image 1" id="image-1">
-                <img src="image2.gif" alt="Image 2" id="image-2">
-                <img src="image3.gif" alt="Image 3" id="image-3">
-                <img src="image3.gif" alt="Image 4" id="image-4">
-            </div>
-            <div class="button-container">
-                <button id="no-button">No</button>
-                <button id="yes-button">Yes</button>
-            </div>
-        </div>
-        <div class="date-container">
-            <h2>Please confirm your date</h2>
-            <input type="date" id="date-selector">
-            <button id="confirm-button">Confirm</button>
-        </div>
-        <div class="confirmation-container">
-            <p id="confirm-message"></p>
-        </div>
-        <div class="pdf-container">
-            <embed src="your-date-plans.pdf" type="application/pdf" width="100%" height="600px">
-        </div>
+      <div class="glass">
+        <div class="shine"></div>
+      </div>
+      <div class="thorns">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="leaves">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="petals">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="text">
+        <h2></h2> Your smile is as beautiful as Rose <br /> 
+       I have Something For your Smile : <a href="new.html">Click Here</a></h2>
+      </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                document.querySelector(".message-1").style.opacity = "0";
-                setTimeout(() => {
-                    document.querySelector(".message-1").style.display = "none";
-                    document.querySelector(".message-2").style.opacity = "1";
-                }, 500);
-            }, 500);
-
-            const noButton = document.getElementById("no-button");
-            const yesButton = document.getElementById("yes-button");
-            const image1 = document.getElementById("image-1");
-            const image2 = document.getElementById("image-2");
-            const image3 = document.getElementById("image-3");
-            const image4 = document.getElementById("image-4");
-            const dateContainer = document.querySelector(".date-container");
-            const confirmationContainer = document.querySelector(".confirmation-container");
-            const confirmButton = document.getElementById("confirm-button");
-            const pdfContainer = document.querySelector(".pdf-container");
-            const confirmMessage = document.getElementById("confirm-message");
-
-            noButton.addEventListener("mouseover", () => {
-                image1.style.display = "none";
-                image2.style.display = "none";
-                image3.style.display = "block";
-                image4.style.display = "none";
-            });
-
-            yesButton.addEventListener("mouseover", () => {
-                image1.style.display = "none";
-                image2.style.display = "block";
-                image3.style.display = "none";
-                image4.style.display = "none";
-            });
-
-            yesButton.addEventListener("click", () => {
-                document.querySelector(".message-container").style.display = "none";
-                document.querySelector(".content-container").style.display = "none";
-                dateContainer.style.display = "flex";
-            });
-
-            noButton.addEventListener("click", () => {
-                // Move the "No" button to a random location
-                const randomX = Math.floor(Math.random() * window.innerWidth);
-                const randomY = Math.floor(Math.random() * window.innerHeight);
-
-                noButton.style.position = "absolute";
-                noButton.style.left = `${randomX}px`;
-                noButton.style.top = `${randomY}px`;
-            });
-
-            confirmButton.addEventListener("click", () => {
-                const date = document.getElementById("date-selector").value;
-
-                // Display the confirmation message
-                confirmMessage.textContent = `Your date has been confirmed for ${date}. Please take a screenshot and share it with your partner.`;
-                confirmMessage.style.display = "block";
-
-                // Display Image 4
-                image4.style.display = "block";
-
-                // Optionally, you can hide the confirmation message after a delay
-                // confirmationContainer.style.display = "none";
-
-                // You can also display the PDF container if desired
-                // pdfContainer.style.display = "block";
-            });
-        });
-    </script>
-</body>
+  </body>
 </html>
