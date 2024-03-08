@@ -140,7 +140,7 @@
         </div>
         <div class="content-container">
             <div class="text-content">
-                <h1>Would you like to go on a date with mee??</h1>
+                <h1>Would you like to go on a movie  date with mee??</h1>
                 <p>I have prepared some exciting plans for you.</p>
             </div>
             <div class="image-container">
@@ -150,13 +150,36 @@
                 <img src="image3.gif" alt="Image 4" id="image-4">
             </div>
             <div class="button-container">
-                <button id="no-button">No</button>
-                <button id="yes-button">Yes</button>
+                <button id="no-button" >No</button>
+                <button id="yes-button" >Yes</button>
             </div>
         </div>
         <div class="date-container">
-            <h2>Please confirm your date</h2>
-            <input type="date" id="date-selector">
+            <h2>Please select a movie</h2>
+            <select id="movie-selector">
+                <option value="Dear John (2010)">Dear John (2010)</option>
+                <option value="The Notebook (2004)">The Notebook (2004)</option>
+                <option value="The Last Song (2010)">The Last Song (2010)</option>
+                <option value="Step Up (2006)">Step Up (2006)</option>
+                <option value="One Day (2011)">One Day (2011)</option>
+                <option value="Life as We Know It (2010)">Life as We Know It (2010)</option>
+                <option value="When in Rome (2010)">When in Rome (2010)</option>
+                <option value="Friends with Benefits (2011)">Friends with Benefits (2011)</option>
+                <option value="Dirty Dancing (1987)">Dirty Dancing (1987)</option>
+                <option value="Trouble in Paradise (1932)">Trouble in Paradise (1932)</option>
+                <option value="Dilwale Dulhania Le Jayenge (1995)">Dilwale Dulhania Le Jayenge (1995)</option>
+                <option value="Guide (1965)">Guide (1965)</option>
+                <option value="Maine Pyar Kiya (1989)">Maine Pyar Kiya (1989)</option>
+                <option value="Mughal-E-Azam (1960)">Mughal-E-Azam (1960)</option>
+                <option value="Rehna Hai Tere Dil Mein (2001)">Rehna Hai Tere Dil Mein (2001)</option>
+                <option value="Band Baaja Baarat">Band Baaja Baarat</option>
+                <option value="Barfi">Barfi</option>
+                <option value="Dev D">Dev D</option>
+                <option value="Devdas (2002)">Devdas (2002)</option>
+                <option value="Kabhi Kabhie (1976)">Kabhi Kabhie (1976)</option>
+
+                <!-- Add more movie options here -->
+            </select>
             <button id="confirm-button">Confirm</button>
         </div>
         <div class="confirmation-container">
@@ -167,74 +190,92 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-                document.querySelector(".message-1").style.opacity = "0";
-                setTimeout(() => {
-                    document.querySelector(".message-1").style.display = "none";
-                    document.querySelector(".message-2").style.opacity = "1";
-                }, 500);
-            }, 500);
+        let noCount = 0;
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.querySelector(".message-1").style.opacity = "0";
+        setTimeout(() => {
+            document.querySelector(".message-1").style.display = "none";
+            document.querySelector(".message-2").style.opacity = "1";
+        }, 500);
+    }, 500);
 
-            const noButton = document.getElementById("no-button");
-            const yesButton = document.getElementById("yes-button");
-            const image1 = document.getElementById("image-1");
-            const image2 = document.getElementById("image-2");
-            const image3 = document.getElementById("image-3");
-            const image4 = document.getElementById("image-4");
-            const dateContainer = document.querySelector(".date-container");
-            const confirmationContainer = document.querySelector(".confirmation-container");
-            const confirmButton = document.getElementById("confirm-button");
-            const pdfContainer = document.querySelector(".pdf-container");
-            const confirmMessage = document.getElementById("confirm-message");
+    const noButton = document.getElementById("no-button");
+    const yesButton = document.getElementById("yes-button");
+    const image1 = document.getElementById("image-1");
+    const image2 = document.getElementById("image-2");
+    const image3 = document.getElementById("image-3");
+    const image4 = document.getElementById("image-4");
+    const dateContainer = document.querySelector(".date-container");
+    const confirmationContainer = document.querySelector(".confirmation-container");
+    const confirmButton = document.getElementById("confirm-button");
+    const pdfContainer = document.querySelector(".pdf-container");
+    const confirmMessage = document.getElementById("confirm-message");
 
-            noButton.addEventListener("mouseover", () => {
-                image1.style.display = "none";
-                image2.style.display = "none";
-                image3.style.display = "block";
-                image4.style.display = "none";
-            });
+    noButton.addEventListener("mouseover", () => {
+        image1.style.display = "none";
+        image2.style.display = "none";
+        image3.style.display = "block";
+        image4.style.display = "none";
+    });
 
-            yesButton.addEventListener("mouseover", () => {
-                image1.style.display = "none";
-                image2.style.display = "block";
-                image3.style.display = "none";
-                image4.style.display = "none";
-            });
+    yesButton.addEventListener("mouseover", () => {
+        image1.style.display = "none";
+        image2.style.display = "block";
+        image3.style.display = "none";
+        image4.style.display = "none";
+    });
 
-            yesButton.addEventListener("click", () => {
-                document.querySelector(".message-container").style.display = "none";
-                document.querySelector(".content-container").style.display = "none";
-                dateContainer.style.display = "flex";
-            });
+    yesButton.addEventListener("click", () => {
+        document.querySelector(".message-container").style.display = "none";
+        document.querySelector(".content-container").style.display = "none";
+        dateContainer.style.display = "flex";
+    });
 
-            noButton.addEventListener("click", () => {
-                // Move the "No" button to a random location
-                const randomX = Math.floor(Math.random() * window.innerWidth);
-                const randomY = Math.floor(Math.random() * window.innerHeight);
+    noButton.addEventListener("click", () => {
+        noCount++;
+        const phrases = [
+            "No",
+            "Are you sure?",
+            "Really sure?",
+            "Think again!",
+            "Last chance!",
+            "Surely not?",
+            "You might regret this!",
+            "Give it another thought!",
+            "Are you absolutely certain?",
+            "This could be a mistake!",
+            "Have a heart!",
+            "Don't be so cold!",
+            "Change of heart?",
+            "Wouldn't you reconsider?",
+            "Is that your final answer?",
+            "You're breaking my heart ;("
+        ];
+        noButton.textContent = phrases[Math.min(noCount, phrases.length - 1)];
+        // Move the "No" button to a random location within the viewport
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const randomX = Math.floor(Math.random() * viewportWidth);
+        const randomY = Math.floor(Math.random() * viewportHeight);
+        noButton.style.position = "absolute";
+        noButton.style.left = `${randomX}px`;
+        noButton.style.top = `${randomY}px`;
 
-                noButton.style.position = "absolute";
-                noButton.style.left = `${randomX}px`;
-                noButton.style.top = `${randomY}px`;
-            });
+        // Increase the size of the "Yes" button
+        yesButton.style.fontSize = `${16 + 10*noCount}px`;
+    });
 
-            confirmButton.addEventListener("click", () => {
-                const date = document.getElementById("date-selector").value;
+    confirmButton.addEventListener("click", () => {
+    const selectedMovie = document.getElementById("movie-selector").value;
+    confirmMessage.textContent = `You have selected "${selectedMovie}" as your movie. Enjoy your date!`;
+    confirmMessage.style.display = "block";
+    });
 
-                // Display the confirmation message
-                confirmMessage.textContent = `Your date has been confirmed for ${date}. Please take a screenshot and share it with your partner.`;
-                confirmMessage.style.display = "block";
+});
 
-                // Display Image 4
-                image4.style.display = "block";
 
-                // Optionally, you can hide the confirmation message after a delay
-                // confirmationContainer.style.display = "none";
 
-                // You can also display the PDF container if desired
-                // pdfContainer.style.display = "block";
-            });
-        });
     </script>
 </body>
 </html>
