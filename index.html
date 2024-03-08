@@ -213,6 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const pdfContainer = document.querySelector(".pdf-container");
     const confirmMessage = document.getElementById("confirm-message");
 
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     noButton.addEventListener("mouseover", () => {
         image1.style.display = "none";
         image2.style.display = "none";
@@ -254,26 +256,32 @@ document.addEventListener("DOMContentLoaded", () => {
             "You're breaking my heart ;("
         ];
         noButton.textContent = phrases[Math.min(noCount, phrases.length - 1)];
+
         // Move the "No" button to a random location within the viewport
+        const buttonWidth = noButton.offsetWidth;
+        const buttonHeight = noButton.offsetHeight;
         const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
         const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-        const randomX = Math.floor(Math.random() * viewportWidth);
-        const randomY = Math.floor(Math.random() * viewportHeight);
+        const maxButtonX = viewportWidth - buttonWidth;
+        const maxButtonY = viewportHeight - buttonHeight;
+        const randomX = Math.floor(Math.random() * maxButtonX);
+        const randomY = Math.floor(Math.random() * maxButtonY);
         noButton.style.position = "absolute";
         noButton.style.left = `${randomX}px`;
         noButton.style.top = `${randomY}px`;
 
         // Increase the size of the "Yes" button
-        yesButton.style.fontSize = `${16 + 10*noCount}px`;
+        yesButton.style.fontSize = `${16 + 10 * noCount}px`;
     });
 
     confirmButton.addEventListener("click", () => {
-    const selectedMovie = document.getElementById("movie-selector").value;
-    confirmMessage.textContent = `You have selected "${selectedMovie}" as your movie. Enjoy your date!`;
-    confirmMessage.style.display = "block";
+        const selectedMovie = document.getElementById("movie-selector").value;
+        confirmMessage.textContent = `You have selected "${selectedMovie}" as your movie. Enjoy your date!`;
+        confirmMessage.style.display = "block";
     });
-
 });
+
+
 
 
 
